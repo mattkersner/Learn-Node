@@ -51,6 +51,7 @@ storeSchema.pre('save',  async function(next) {
 	next();
 });
 
+// created our own scheme query function, used MongoDB aggregate
 storeSchema.statics.getTagsList = function() {
   return this.aggregate([
     { $unwind: '$tags' },
